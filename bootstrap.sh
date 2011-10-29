@@ -71,10 +71,6 @@ if [ ! $(which chef-solo 2>/dev/null) ]; then
   gem install chef --no-ri --no-rdoc >/dev/null || exit 1
 fi
 
-if [ -z $DEV_TYPE ]; then
-  DEV_TYPE="rubydev"
-fi
-
 log "Fetching latest version of Lunar Station cookbooks..."
 if [[ -d "$PREV_DIR/cookbooks" && -d "$PREV_DIR/nodes" && -d "$PREV_DIR/config" ]]; then
   cp -r $PREV_DIR/cookbooks $PREV_DIR/nodes $PREV_DIR/roles $PREV_DIR/config .
@@ -84,5 +80,13 @@ else
   cd `tar tf lunar-station.tar.gz | head -1`
 fi
 
+if [ -z $NODE ]; then
+  if [ -z $DEV_TYPE ]; then
+    DEV_TYPE="rubydev"
+  fi
+
+  $NODE="$OS-$DEV_TYPE"
+fi
+
 log "Starting chef-solo run..."
-rvmsudo chef-solo -c config/solo.rb -j nodes/$OS-$DEV_TYPE.json
+rvmsudo chef-solo -c config/solo.rb -j nodes/$NODE.json
