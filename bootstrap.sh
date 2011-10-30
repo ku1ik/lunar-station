@@ -75,7 +75,7 @@ log "Fetching latest version of Lunar Station cookbooks..."
 if [[ -d "$PREV_DIR/cookbooks" && -d "$PREV_DIR/nodes" && -d "$PREV_DIR/config" ]]; then
   cp -r $PREV_DIR/cookbooks $PREV_DIR/nodes $PREV_DIR/roles $PREV_DIR/config .
 else
-  curl -sL -o lunar-station.tar.gz https://github.com/LunarLogicPolska/lunar-station/tarball/master || exit 1
+  curl -sL -o lunar-station.tar.gz https://github.com/sickill/lunar-station/tarball/master || exit 1
   tar xf lunar-station.tar.gz || exit 1
   cd `tar tf lunar-station.tar.gz | head -1`
 fi
