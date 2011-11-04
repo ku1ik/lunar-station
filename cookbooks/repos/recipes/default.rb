@@ -24,4 +24,5 @@ when 'fedora'
     options "--nogpgcheck"
   end
 
+  package 'yum-plugin-fastestmirror'
 end
