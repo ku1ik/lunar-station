@@ -3,7 +3,7 @@ when 'fedora'
   path = "/tmp/rpmfusion-free-release-stable.noarch.rpm"
 
   bash "download rpmfusion free package" do
-    code "wget http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm -O #{path}"
+    code "curl http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm -o #{path}"
     not_if { File.exist?(path) }
   end
 
@@ -15,7 +15,7 @@ when 'fedora'
   path = "/tmp/rpmfusion-nonfree-release-stable.noarch.rpm"
 
   bash "download rpmfusion nonfree package" do
-    code "wget http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm -O #{path}"
+    code "curl http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm -o #{path}"
     not_if { File.exist?(path) }
   end
 
