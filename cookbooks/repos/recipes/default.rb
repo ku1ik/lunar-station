@@ -25,4 +25,9 @@ when 'fedora'
   end
 
   package 'yum-plugin-fastestmirror'
+
+  bash "configure yum" do
+    code "yum-config-manager --setopt clean_requirements_on_remove=1 --save >/dev/null"
+    not_if %(grep "clean_requirements_on_remove" /etc/yum.conf)
+  end
 end
