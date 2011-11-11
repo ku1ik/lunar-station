@@ -85,7 +85,7 @@ if [ -z $NODE ]; then
     DEV_TYPE="rubydev"
   fi
 
-  $NODE="$OS-$DEV_TYPE"
+  NODE="$OS-$DEV_TYPE"
 fi
 
 log "Starting chef-solo run..."
