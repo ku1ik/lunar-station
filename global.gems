@@ -1,0 +1,12 @@
+gem-ctags
+gem-browse
+rake
+bundler
+interactive_editor
+capistrano
+capistrano-ext
+vagrant
+foreman
+rb-inotify
+heroku
+capistrano_colors
