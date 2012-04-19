@@ -49,8 +49,9 @@ if [ ! -d ~/.rvm ]; then
 
   log "Appending RVM function to your .bash_profile..."
   grep "scripts/rvm" ~/.bash_profile >/dev/null 2>&1 || echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function' >> ~/.bash_profile
-  . ~/.rvm/scripts/rvm
 fi
+
+. ~/.rvm/scripts/rvm
 
 if [[ ! $(rvm list | grep -F 1.9.2) ]]; then
   log "Installing ruby 1.9.2..."
